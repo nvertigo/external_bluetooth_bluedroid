@@ -92,7 +92,7 @@ LOCAL_C_INCLUDES+= . \
 	$(bdroid_C_INCLUDES) \
 	external/tinyxml2
 
-LOCAL_CFLAGS += -DBUILDCFG $(bdroid_CFLAGS) -Werror -Wno-error=maybe-uninitialized -Wno-error=uninitialized $(call cc-option,-Wno-error=unused-parameter) -O2
+LOCAL_CFLAGS += -DBUILDCFG $(bdroid_CFLAGS) -Werror -Wno-error=maybe-uninitialized -Wno-error=uninitialized $(call cc-option,-Wno-error=unused-parameter) -O2 $(call cc-option,-march=cortex-a15) $(call cc-option,-mtune=cortex-a15) -mtune=cortex-a9 -mcpu=cortex-a9
 
 ifeq ($(TARGET_PRODUCT), full_crespo)
      LOCAL_CFLAGS += -DTARGET_CRESPO
