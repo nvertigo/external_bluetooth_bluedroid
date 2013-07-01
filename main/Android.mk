@@ -94,6 +94,10 @@ LOCAL_C_INCLUDES+= . \
 
 LOCAL_CFLAGS += -DBUILDCFG $(bdroid_CFLAGS) -Werror -Wno-error=maybe-uninitialized -Wno-error=uninitialized $(call cc-option,-Wno-error=unused-parameter) -O2
 
+ifeq ($(TARGET_PRODUCT), aokp_manta)
+     LOCAL_CFLAGS += -mtune=cortex-a9
+endif
+
 ifeq ($(TARGET_PRODUCT), full_crespo)
      LOCAL_CFLAGS += -DTARGET_CRESPO
 endif
